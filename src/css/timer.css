@@ -1,0 +1,84 @@
+.timer-wrapper {
+  padding: 100px 0;
+  margin: 0 auto;
+  max-width: 320px;
+}
+
+.timer {
+  display: flex;
+  gap: 12px;
+  margin-top: 32px;
+}
+
+button {
+  height: 28px;
+  margin-left: 18px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+}
+
+.value {
+  font-size: 44px;
+}
+
+.label {
+  font-size: 12px;
+  text-align: center;
+}
+
+input {
+  padding: 0 4px;
+
+  height: 28px;
+  border: 1px solid rgba(0, 0, 0, 0.479);
+  border-radius: 2px;
+
+  width: 75%;
+}
+
+.timer-animation {
+  position: relative;
+  padding: 30px 50px;
+  border-radius: 16px;
+  background: #111;
+  color: #fff;
+  font-size: 18px;
+  text-align: center;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.timer-animation::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  padding: 4px; /* товщина рамки */
+  border-radius: inherit;
+  background: conic-gradient(
+    from 0deg,
+    red,
+    orange,
+    yellow,
+    lime,
+    cyan,
+    blue,
+    violet,
+    red
+  );
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: hue-steps 4s steps(4) infinite;
+}
+
+@keyframes hue-steps {
+  0% {
+    filter: hue-rotate(0deg);
+  }
+  100% {
+    filter: hue-rotate(360deg);
+  }
+}
